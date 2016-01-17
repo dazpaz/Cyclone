@@ -94,7 +94,7 @@ namespace DazPaz.Cyclone
 
 		#endregion
 
-		#region Scalar multiplication
+		#region Scalar multiplication and division
 
 		public static Vector3 operator *(Vector3 vector, double scale)
 		{
@@ -112,10 +112,6 @@ namespace DazPaz.Cyclone
 			Y *= scalar;
 			Z *= scalar;
 		}
-
-		#endregion
-
-		#region Scalar division
 
 		public static Vector3 operator /(Vector3 vector, double scale)
 		{
@@ -174,13 +170,20 @@ namespace DazPaz.Cyclone
 
 		#endregion
 
-		#region Invert
+		#region Invert and Set Zero
 
 		public void Invert()
 		{
 			X = -X;
 			Y = -Y;
 			Z = -Z;
+		}
+
+		public void SetZero()
+		{
+			X = 0.0;
+			Y = 0.0;
+			Z = 0.0;
 		}
 
 		#endregion

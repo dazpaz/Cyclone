@@ -244,6 +244,15 @@ namespace DazPaz.Cyclone.Test
 		}
 
 		[TestMethod]
+		public void SetZero_CanSetTheThreeCoordinatesOfVectorToZero()
+		{
+			var vector = CreateTestVector();
+			vector.SetZero();
+
+			VerifyVector(vector, Zero, Zero, Zero);
+		}
+
+		[TestMethod]
 		public void Normalise_CanNormaliseAVector_AndTheVectorIsSetToItsNormal()
 		{
 			var vector = CreateTestVector();
