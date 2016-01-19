@@ -302,6 +302,14 @@ namespace DazPaz.Cyclone.Test
 		}
 
 		[TestMethod]
+		public void HashCode_CanDetermineTheHashCodeForAVector()
+		{
+			var vector = new Vector3(1.0, 2.0, 3.0);
+			var hashCode = vector.GetHashCode();
+			Assert.AreEqual(118590513, hashCode);
+		}
+
+		[TestMethod]
 		public void Equals_CanDetermineIfTwoVectorsHaveEqualValues_AndFalseIsReturnedIfTheyAreNot()
 		{
 			var vector = new Vector3(1.0, 2.0, 3.0);

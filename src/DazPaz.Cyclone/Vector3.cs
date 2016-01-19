@@ -59,6 +59,7 @@ namespace DazPaz.Cyclone
 
 		#endregion
 
+		#region Overriden from Object 
 		public override bool Equals(object obj)
 		{
 			var other = obj as Vector3;
@@ -68,6 +69,14 @@ namespace DazPaz.Cyclone
 				&& other.Y == Y
 				&& other.Z == Z;
 		}
+
+		public override int GetHashCode()
+		{
+			var text = String.Format("({0},{1},{2})", X, Y, Z);
+			return text.GetHashCode();
+		}
+
+		#endregion
 
 		#region Addition and subtraction
 
