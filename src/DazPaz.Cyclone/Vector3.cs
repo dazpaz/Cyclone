@@ -59,6 +59,16 @@ namespace DazPaz.Cyclone
 
 		#endregion
 
+		public override bool Equals(object obj)
+		{
+			var other = obj as Vector3;
+
+			return other != null
+				&& other.X == X
+				&& other.Y == Y
+				&& other.Z == Z;
+		}
+
 		#region Addition and subtraction
 
 		public static Vector3 operator +(Vector3 v1, Vector3 v2)

@@ -292,6 +292,30 @@ namespace DazPaz.Cyclone.Test
 			}
 		}
 
+		[TestMethod]
+		public void Equals_CanDetermineIfTwoVectorsHaveEqualValues_AndTrueIsReturnedIfTheyAre()
+		{
+			var vector = new Vector3(1.0, 2.0, 3.0);
+			var other = new Vector3(1.0, 2.0, 3.0);
+
+			Assert.IsTrue(vector.Equals(other));
+		}
+
+		[TestMethod]
+		public void Equals_CanDetermineIfTwoVectorsHaveEqualValues_AndFalseIsReturnedIfTheyAreNot()
+		{
+			var vector = new Vector3(1.0, 2.0, 3.0);
+			var differentZ = new Vector3(1.0, 2.0, 3.1);
+			var differentY = new Vector3(1.0, 2.1, 3.0);
+			var differentX = new Vector3(1.1, 2.0, 3.0);
+			var notVector = "String";
+
+			Assert.IsFalse(vector.Equals(differentZ));
+			Assert.IsFalse(vector.Equals(differentY));
+			Assert.IsFalse(vector.Equals(differentX));
+			Assert.IsFalse(vector.Equals(notVector));
+		}
+
 		#region private methods
 
 		private Vector3 CreateTestVector()

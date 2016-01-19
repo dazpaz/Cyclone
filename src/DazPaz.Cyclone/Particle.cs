@@ -6,7 +6,7 @@ namespace DazPaz.Cyclone
 	{
 		#region constants
 
-		private const float EarthsGravity = 10.0f;
+		public const float EarthsGravity = 10.0f;
 
 		#endregion
 
@@ -19,7 +19,7 @@ namespace DazPaz.Cyclone
 
 		public Vector3 Position { get; set; }
 		public Vector3 Velocity { get; set; }
-		public double Gravity { get; set; }
+		public double Gravity { get; private set; }
 		public double Damping { get; set; }
 		public double InverseMass { get; set; }
 
@@ -74,7 +74,7 @@ namespace DazPaz.Cyclone
 			AccumulatedForce += force;
 		}
 
-		public void Integrate(float duration)
+		public void Integrate(double duration)
 		{
 			if (duration == 0.0)  throw new InvalidDurationException("Duration can not be zero");
 
@@ -94,7 +94,7 @@ namespace DazPaz.Cyclone
 			// Impose drag if there is damping - we are using the full equation for now - make configurable?
 			if (Damping != 1.0f)
 			{
-				Velocity *= (float)Math.Pow(Damping, duration);
+				Velocity *= Math.Pow(Damping, duration);
 			}
 
 			// Clear the forces
@@ -106,7 +106,7 @@ namespace DazPaz.Cyclone
 
 		private void SetInverseMass(double mass)
 		{
-			if (mass == 0.0) throw new InvalidMassException("Can not set mass of a particle to zero");
+			if (mass == 0.0) throw new InvalidMassException("Cannot set mass of a particle to zero");
 			InverseMass = 1 / mass;
 		}
 
@@ -114,12 +114,6 @@ namespace DazPaz.Cyclone
 		{
 			if (InverseMass == 0.0) throw new InvalidMassException("Mass is infinite");
 			return 1 / InverseMass;
-		}
-
-		private void SetGravity(double gravity)
-		{
-			Gravity = gravity;
-			GravityAcceleration.Y = -gravity;
 		}
 
 		private void ClearAccumulatedForce()
