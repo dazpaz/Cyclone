@@ -2,13 +2,13 @@
 {
 	public class GravityForceGenerator : IParticleForceGenerator
 	{
-		#region properties
+		#region Properties
 
 		private Vector3 Gravity { get; set; }
 
 		#endregion
 
-		#region constructors
+		#region Constructors
 
 		public GravityForceGenerator(double gravity)
 		{

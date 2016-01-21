@@ -4,14 +4,14 @@ namespace DazPaz.Cyclone
 {
 	public class DragForceGenerator : IParticleForceGenerator
 	{
-		#region properties
+		#region Properties
 
 		private double K1 { get; set; }
 		private double K2 { get; set; }
 
 		#endregion
 
-		#region constructors
+		#region Constructors
 
 		public DragForceGenerator(double k1, double k2)
 		{
