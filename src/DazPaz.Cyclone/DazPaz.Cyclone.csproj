@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DragForceGenerator.cs" />
+    <Compile Include="GravityForceGenerator.cs" />
     <Compile Include="InvalidDurationException.cs" />
     <Compile Include="IParticle.cs" />
+    <Compile Include="IParticleForceGenerator.cs" />
     <Compile Include="MagnitudeZeroException.cs" />
     <Compile Include="Particle.cs" />
+    <Compile Include="ParticleForceRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vector3.cs" />
     <Compile Include="InvalidMassException.cs" />
