@@ -6,13 +6,13 @@ namespace DazPaz.Cyclone.Test
 	[TestClass]
 	public class Vector3Tests
 	{
-		private static readonly double Zero = 0.0;
-		private static readonly double X = 3.0;
-		private static readonly double Y = 4.0;
-		private static readonly double Z = 5.0;
-		private static readonly double RoundingTolerance = 1E-14;
-		private static readonly double MagnitudeOfNormalVector = 1.0;
-		private static readonly double ExpectedSquareMagnitude = 50.0;
+		private const double Zero = 0.0;
+		private const double X = 3.0;
+		private const double Y = 4.0;
+		private const double Z = 5.0;
+		private const double RoundingTolerance = 1E-14;
+		private const double MagnitudeOfNormalVector = 1.0;
+		private const double ExpectedSquareMagnitude = 50.0;
 		private static readonly double ExpectedMagnitude = Math.Sqrt(ExpectedSquareMagnitude);
 
 		[TestMethod]
@@ -316,12 +316,11 @@ namespace DazPaz.Cyclone.Test
 			var differentZ = new Vector3(1.0, 2.0, 3.1);
 			var differentY = new Vector3(1.0, 2.1, 3.0);
 			var differentX = new Vector3(1.1, 2.0, 3.0);
-			var notVector = "String";
 
 			Assert.IsFalse(vector.Equals(differentZ));
 			Assert.IsFalse(vector.Equals(differentY));
 			Assert.IsFalse(vector.Equals(differentX));
-			Assert.IsFalse(vector.Equals(notVector));
+			Assert.IsFalse(vector.Equals("String"));
 		}
 
 		#region private methods

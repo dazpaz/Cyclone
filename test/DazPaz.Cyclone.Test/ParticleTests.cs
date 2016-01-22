@@ -77,9 +77,7 @@ namespace DazPaz.Cyclone.Test
 		[TestMethod]
 		public void ParticlesMass_CanUpdateTheMassOfAParticle_AndItsMassIsUpdated()
 		{
-			var particle = new Particle(TestPosition, TestVelocity, 5.0);
-
-			particle.Mass = 0.65;
+			var particle = new Particle(TestPosition, TestVelocity, 5.0) {Mass = 0.65};
 
 			Assert.AreEqual(0.65, particle.Mass);
 		}
@@ -104,8 +102,7 @@ namespace DazPaz.Cyclone.Test
 		{
 			try
 			{
-				var particle = new Particle();
-				particle.Mass = 0.0;
+				var particle = new Particle {Mass = 0.0};
 				Assert.Fail("Exception was not thrown");
 			}
 			catch (InvalidMassException ex)

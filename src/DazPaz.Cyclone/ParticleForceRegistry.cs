@@ -17,7 +17,7 @@ namespace DazPaz.Cyclone
 	{
 		public void UpdateForces(double duration)
 		{
-			foreach (ParticleForceRegistration registration in this)
+			foreach (var registration in this)
 			{
 				registration.Generator.UpdateForce(registration.Particle, duration);
 			}

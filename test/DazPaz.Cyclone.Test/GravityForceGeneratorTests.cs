@@ -34,7 +34,7 @@ namespace DazPaz.Cyclone.Test
 			mockParticle.VerifyAll();
 		}
 
-		private Mock<IParticle> GetMockParticle(bool infiniteMass)
+		private static Mock<IParticle> GetMockParticle(bool infiniteMass)
 		{
 			var mockParticle = new Mock<IParticle>(MockBehavior.Strict);
 			mockParticle.Setup(p => p.IsInfiniteMass).Returns(infiniteMass);

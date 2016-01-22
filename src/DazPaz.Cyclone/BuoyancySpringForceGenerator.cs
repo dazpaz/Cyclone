@@ -30,18 +30,13 @@
 
 		public void UpdateForce(IParticle particle, double duration)
 		{
-			double particleHeight = particle.Position.Y;
+			var particleHeight = particle.Position.Y;
 
 			// Check if we are out of the water - if so, return as there is no buoyancy force to add
-			if (particleHeight >= LiquidHeight + MaximumDepth)
-			{
-				return;
-			}
-
-			Vector3 force = new Vector3();
+			if (particleHeight >= LiquidHeight + MaximumDepth) return;
 
 			// Fully submerged buoyancy force
-			force.Y = LiquidDensity * Volume;
+			var force = new Vector3 {Y = LiquidDensity * Volume};
 
 			// If partially submerged, adjust the buoyancy force based on how deep the object is
 			if (particleHeight > LiquidHeight - MaximumDepth)

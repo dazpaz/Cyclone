@@ -36,23 +36,19 @@ namespace DazPaz.Cyclone
 			Vector3 positionFromAnchor = particle.Position - Anchor;
 
 			// Calculate the value for Gamma
-			float gamma = 0.5f * (float)Math.Sqrt((4 * SpringConstant) - (Damping * Damping));
-			if (gamma == 0.0f)
-			{
-				return;
-			}
+			var gamma = 0.5f * (float)Math.Sqrt((4 * SpringConstant) - (Damping * Damping));
+			
+			if (gamma == 0.0f) return;
 
-			// Calculate the calue for the C constant
-			Vector3 c = (positionFromAnchor * (Damping / (2.0f * gamma))) +
-				(particle.Velocity * (1.0f / gamma));
+			// Calculate the value for the C constant
+			var c = (positionFromAnchor * (Damping / (2.0f * gamma))) + (particle.Velocity * (1.0f / gamma));
 
 			// Calculate the target position (in two parts)
-			Vector3 tagetPosition = (positionFromAnchor * (float)Math.Cos(gamma * duration)) +
-				(c * (float)Math.Sin(gamma * duration));
-			tagetPosition *= (float)Math.Exp(0.5f * duration * Damping);
+			var tagetPosition = (positionFromAnchor * Math.Cos(gamma * duration)) + (c * Math.Sin(gamma*duration));
+			tagetPosition *= Math.Exp(0.5f * duration * Damping);
 
 			// Calculate the acceleration needed (and hence the force)
-			Vector3 acceleration = ((tagetPosition - positionFromAnchor) * (1.0f / (duration * duration))) -
+			var acceleration = ((tagetPosition - positionFromAnchor) * (1.0f / (duration * duration))) -
 				(particle.Velocity * duration);
 
 			// Add the force to the particle

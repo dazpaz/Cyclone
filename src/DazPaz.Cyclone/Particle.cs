@@ -79,7 +79,7 @@ namespace DazPaz.Cyclone
 			if (duration == 0.0)  throw new InvalidDurationException("Duration can not be zero");
 
 			// Start by using gravity - this is already an acceleration so don't convert from a force
-			Vector3 resultingAcceleration = new Vector3(GravityAcceleration);
+			var resultingAcceleration = new Vector3(GravityAcceleration);
 
 			// Work out the acceleration from the force
 			resultingAcceleration.AddScaledVector(AccumulatedForce, InverseMass);

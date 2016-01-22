@@ -4,7 +4,7 @@ namespace DazPaz.Cyclone
 {
 	public class InvalidMassException : Exception
 	{
-		public InvalidMassException() : base()
+		public InvalidMassException()
 		{
 		}
 

@@ -31,11 +31,10 @@
 			var springVector = particle.Position - OtherParticle.Position;
 			var springExtension = springVector.Magnitude - RestLength;
 
-			if (((springExtension < 0.0f) && (IsBungeeSpring == true)) == false)
-			{
-				var springForce = (SpringConstant * springExtension) * springVector.Normal.Inverse;
-				particle.AddForce(springForce);
-			}
+			if (((springExtension < 0.0f) && IsBungeeSpring)) return;
+
+			var springForce = (SpringConstant * springExtension) * springVector.Normal.Inverse;
+			particle.AddForce(springForce);
 		}
 
 		#endregion

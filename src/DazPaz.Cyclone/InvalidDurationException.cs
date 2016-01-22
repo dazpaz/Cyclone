@@ -4,7 +4,7 @@ namespace DazPaz.Cyclone
 {
 	public class InvalidDurationException : Exception
 	{
-		public InvalidDurationException() : base()
+		public InvalidDurationException()
 		{
 		}
 
