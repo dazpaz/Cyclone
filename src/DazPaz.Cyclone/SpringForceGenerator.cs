@@ -5,15 +5,15 @@
 		#region Properties
 
 		private IParticle OtherParticle { get; set; }
-		private float SpringConstant { get; set; }
-		private float RestLength { get; set; }
+		private double SpringConstant { get; set; }
+		private double RestLength { get; set; }
 		private bool IsBungeeSpring { get; set; }
 
 		#endregion
 
 		#region Constructors
 
-		public SpringForceGenerator(IParticle otherParticle, float springConstant, float restLength,
+		public SpringForceGenerator(IParticle otherParticle, double springConstant, double restLength,
 			bool isBungeeSpring = false)
 		{
 			OtherParticle = otherParticle;

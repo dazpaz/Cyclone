@@ -57,10 +57,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AnchoredSpringForceGeneratorTests.cs" />
+    <Compile Include="BuoyancySpringForceGeneratorTests.cs" />
+    <Compile Include="FakeSpringForceGeneratorsTests.cs" />
     <Compile Include="ParticleForceRegistryTests.cs" />
     <Compile Include="ParticleTests.cs" />
     <Compile Include="GravityForceGeneratorTests.cs" />
     <Compile Include="DragForceGeneratorTests.cs" />
+    <Compile Include="SpringForceGeneratorTests.cs" />
     <Compile Include="Vector3Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
