@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Cyclone is a Game Physics Engine developed in C# that is based on the book "Game Physics Engine Development" by Ian Millington</description>
     <summary>Cyclone is a Game Physics Engine developed in C#</summary>
-    <releaseNotes>Cyclone will now function as a Particle Physics Engine : Able to simulate the movement of particles when forces are applied to them, and under gravity.</releaseNotes>
+    <releaseNotes>Started adding the Mass-Aggregate Physics engine : Added force generators for springs and springlike things.</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Game Physics-Engine</tags>
   </metadata>
