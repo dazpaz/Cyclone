@@ -27,28 +27,25 @@ namespace DazPaz.Cyclone
 
 		public void UpdateForce(IParticle particle, double duration)
 		{
-			if (particle.IsInfiniteMass == true)
-			{
-				return;
-			}
+			if (particle.IsInfiniteMass == true) return;
 
 			// Calculate relative position of the particle from the anchor
 			Vector3 positionFromAnchor = particle.Position - Anchor;
 
 			// Calculate the value for Gamma
-			var gamma = 0.5f * (float)Math.Sqrt((4 * SpringConstant) - (Damping * Damping));
+			var gamma = 0.5 * Math.Sqrt((4 * SpringConstant) - (Damping * Damping));
 			
-			if (gamma == 0.0f) return;
+			if (gamma == 0.0) return;
 
 			// Calculate the value for the C constant
-			var c = (positionFromAnchor * (Damping / (2.0f * gamma))) + (particle.Velocity * (1.0f / gamma));
+			var c = (positionFromAnchor * (Damping / (2.0 * gamma))) + (particle.Velocity * (1.0 / gamma));
 
 			// Calculate the target position (in two parts)
 			var tagetPosition = (positionFromAnchor * Math.Cos(gamma * duration)) + (c * Math.Sin(gamma*duration));
-			tagetPosition *= Math.Exp(0.5f * duration * Damping);
+			tagetPosition *= Math.Exp(0.5 * duration * Damping);
 
 			// Calculate the acceleration needed (and hence the force)
-			var acceleration = ((tagetPosition - positionFromAnchor) * (1.0f / (duration * duration))) -
+			var acceleration = ((tagetPosition - positionFromAnchor) * (1.0 / (duration * duration))) -
 				(particle.Velocity * duration);
 
 			// Add the force to the particle
